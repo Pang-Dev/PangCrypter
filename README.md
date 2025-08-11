@@ -1,6 +1,6 @@
 # PangCrypter
 
-PangCrypter is a secure, standalone Windows executable tool for encrypting and editing files with strong AES encryption. It features a sleek dark-themed interface and advanced USB-drive-bound key management for enhanced data security.
+PangCrypter is a secure program, built for encrypting and editing files with strong AES encryption.
 
 ---
 
@@ -31,9 +31,9 @@ Either download the zip file in the latest releases, or use Pang Installer.
 
 ## Key Binding Modes
 
-- **Key-only**: Encryption key stored and bound to a USB drive.
-- **Password-only**: Use only a password to encrypt and decrypt.
-- **Password + Key**: Requires both password and USB key to access the file.
+- **Key-only**: Uses an encryption key stored and bound to a USB drive.
+- **Password-only**: Uses a password to encrypt and decrypt.
+- **Password + Key**: Uses both password and USB key for more security.
 
 ---
 
@@ -49,7 +49,7 @@ Either download the zip file in the latest releases, or use Pang Installer.
 
 ## Support
 
-For issues or feature requests, please contact us [here](https://www.panghq.com/contact).
+Questions, issues or requests? Contact us at [panghq.com/contact](https://www.panghq.com/contact).
 
 ---
 
