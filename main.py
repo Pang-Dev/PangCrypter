@@ -179,7 +179,7 @@ class MainWindow(QMainWindow):
 
         # Hidden label when editor is hidden
         self.hidden_label = QLabel(
-            "Editor hidden due to focus loss. Click here to restore.", self
+            "", self
         )
         self.hidden_label.setStyleSheet(f"""
             color: {TEXT_COLOR};
@@ -258,7 +258,11 @@ class MainWindow(QMainWindow):
         if self.cooldown_remaining <= 0:
             self.allow_editor_activation = True
             self.cooldown_timer.stop()
-            self.try_restore_editor()
+            self.hidden_label.setText(
+                f"Screen recording program detected.\n"
+                f"Make sure to close this window before recording.\n"
+                f"Click here to restore editor."
+            )
         else:
             self.update_hidden_label_for_cooldown()
     
@@ -283,17 +287,19 @@ class MainWindow(QMainWindow):
         active_window = QApplication.activeWindow()
 
         if active_window is None or not (active_window == self or self.isAncestorOf(active_window)):
+            self.hidden_label.setText("Editor hidden due to focus loss. Click here to restore editor.")
             self.hide_editor_and_show_label()
     
     def hide_editor_and_show_label(self):
         self.editor.hide()
-        self.hidden_label.setText("Editor hidden due to focus loss. Click here to restore.")
+        self.editor.setDisabled(True)
         self.hidden_label.show()
     
     def try_restore_editor(self):
         if not self.allow_editor_activation:
             return False
-        
+
+        self.editor.setDisabled(False)        
         self.hidden_label.hide()
         self.editor.show()
         self.editor.setFocus()
